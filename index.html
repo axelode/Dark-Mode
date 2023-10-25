@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle</title>
+
+    <style>
+        *,
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        nav {
+            background-color: #352F44;
+            position: fixed;
+            width: 100%;
+            padding: 15px;
+            bottom: 0;
+        }
+
+        nav a {
+            color: white;
+            padding: 15px;
+            font-weight: 700;
+        }
+
+        nav a:hover {
+            background-color: tomato;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .dark {
+            background-color: #352F44;
+            color: white;
+        }
+
+        #text {
+            font-size: 50px;
+            animation: gerak .5s infinite;
+        }
+
+        @keyframes gerak {
+            0% {
+                font-size: 50px;
+            }
+
+            50% {
+                font-size: 40px;
+            }
+
+            100% {
+                font-size: 50px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+       <nav>
+        <a id="btn" onclick="mode()">DARK MODE</a>
+       </nav>
+       <h1 id="text">LIGHT MODE</h1>
+    </div>
+
+    <script>
+        let body = document.body;
+        let teks = document.getElementById('text');
+        let button = document.getElementById('btn');
+
+        function mode() {
+            body.classList.toggle('dark');
+            if(body.classList == 'dark') {
+                teks.innerHTML = 'DARK MODE';
+                button.innerHTML = 'LIGHT MODE';
+            }else {
+                teks.innerHTML = 'LIGHT MODE';
+                button.innerHTML = 'DARK MODE';
+            }
+        }
+    </script>
+</body>
+</html>
